@@ -22,8 +22,17 @@ function power(num1, num2) {
   return num1 ** num2;
 }
 
-function sqrt(num) {
-  return Math.sqrt(num);
+function sqrt(num1) {
+  return Math.sqrt(num1);
+}
+
+function factorial(num1){
+  let factorial = 1
+      while (num1 > 0){
+        factorial = factorial * num1
+        num1 = num1 - 1
+      }
+      return factorial
 }
 
 function calculate(expression) {
@@ -31,40 +40,42 @@ function calculate(expression) {
   let num1;
   let num2;
   let operator;
-  if (tokens.length = 3) {
-    num1 = Number(token[0]);
-    num2 = Number(token[2]);
-    operator = token[1];
+  if (tokens.length === 3) {
+    num1 = Number(tokens[0]);
+    num2 = Number(tokens[2]);
+    operator = tokens[1];
     if (Number.isNaN(num1) || Number.isNaN(num2)) {
       alert("Not a number. Try again please!")
       return
     }
-    } else if (tokens.length = 2) {
-      operator = token[0]
-      num1 = Number(token[1])
+  } else if (tokens.length === 2) {
+      operator = tokens[0]
+      num1 = Number(tokens[1])
       if (Number.isNaN(num1)) {
         alert("Not a number. Try again please!")
         return
       }
-    } else{
+  } else{
       alert("Not a valid expression. Please input one operation at a time.")
       return
-    }
-    if (operator === "+") {
-      sum(num1, num2);
-    } else if (operator === "-") {
-      difference(num1, num2);
-    } else if (operator === "/") {
-      quotient(num1, num2);
-    } else if (operator === "*") {
-      product(num1, num2);
-    } else if (operator === "**") {
-      power(num1, num2);
-    } else if (operator === "%") {
-      remainder(num1, num2);
-    } else if (operator === "sqrt") {
-      sqrt(num1);
-    }else{
+  }
+  if (operator === "+") {
+      return sum(num1, num2);
+  } else if (operator === "-") {
+      return difference(num1, num2);
+  } else if (operator === "/") {
+      return quotient(num1, num2);
+  } else if (operator === "*") {
+      return product(num1, num2);
+  } else if (operator === "**") {
+      return power(num1, num2);
+  } else if (operator === "%") {
+      return remainder(num1, num2);
+  } else if (operator === "sqrt") {
+      return sqrt(num1);
+  } else if (operator === "!"){
+      return factorial(num1)
+  }else{
       alert("Unrecognized operator. Please try again.")
     }
   }
